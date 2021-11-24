@@ -1,26 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {
-  // deleteContact,
-  // submitContacts,
-  changeFilter,
-} from './phonebook-actions';
-// import {
-// addContactRequest,
-// addContactSuccess,
-// addContactError,
-// fetchContactRequest,
-// fetchContactSuccess,
-// fetchContactError,
-// deleteContactRequest,
-// deleteContactSuccess,
-// deleteContactError,
-// } from './phonebook-actions';
+import { changeFilter } from './phonebook-actions';
 import {
   fetchContacts,
   postAddContact,
   deleteContact,
 } from './phonebook-operations';
-// import defaultContacts from '../json/defaultContacts.json';
 
 export const contactsReducer = createReducer([], {
   [fetchContacts.fulfilled]: (_, action) => action.payload,

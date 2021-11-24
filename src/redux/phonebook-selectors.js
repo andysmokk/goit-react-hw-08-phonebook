@@ -14,13 +14,3 @@ export const getFilteredContacts = createSelector(
     );
   },
 );
-
-// export const getFilteredContacts = state => {
-//   const contacts = getContacts(state);
-//   const filter = getFilter(state);
-
-//   const normalizedFilter = filter.toLocaleLowerCase();
-//   return contacts.filter(contact =>
-//     contact.name.toLocaleLowerCase().includes(normalizedFilter),
-//   );
-// };

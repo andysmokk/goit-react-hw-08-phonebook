@@ -8,7 +8,7 @@ export function UserMenu() {
         alt=""
         width="25"
       ></img>
-      <p>Welcome</p>
+      <p>Welcome, Name</p>
       <button type="button">Logout</button>
     </div>
   );

@@ -1,46 +1,57 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-// import {
-//   // persistStore,
-//   // persistReducer,
-//   FLUSH,
-//   REHYDRATE,
-//   PAUSE,
-//   PERSIST,
-//   PURGE,
-//   REGISTER,
-// } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import { configureStore } from '@reduxjs/toolkit';
 import {
-  contactsReducer,
-  filterReducer,
-  loadingReducer,
-} from './phonebook-reducers';
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import phoneBookReducer from './phonebook-reducers';
+import authReducer from './auth/auth-slice';
 
-// const contactsPersistConfig = {
-//   key: 'contacts',
-//   storage,
-//   blacklist: ['filter'],
-// };
+const phoneBookPersistConfig = {
+  key: 'contacts',
+  storage,
+  blacklist: ['filter'],
+};
 
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-  loading: loadingReducer,
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  blacklist: ['token'],
+};
+
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+//   filter: filterReducer,
+//   loading: loadingReducer,
+// });
+
+const persistedPhoneBookReducer = persistReducer(
+  phoneBookPersistConfig,
+  phoneBookReducer,
+);
+
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
+export const store = configureStore({
+  reducer: {
+    contacts: persistedPhoneBookReducer,
+    auth: persistedAuthReducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  devTools: process.env.NODE_ENV === 'development',
 });
 
-// const persistedReducer = persistReducer(contactsPersistConfig, rootReducer);
+export const persistor = persistStore(store);
 
-const store = configureStore({
-  reducer: rootReducer,
-  // middleware: getDefaultMiddleware =>
-  //   getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //     },
-  //   }),
-  // devTools: process.env.NODE_ENV === 'development',
-});
-
-// const persistor = persistStore(store);
-
-export { store };
+// export { store };

@@ -4,8 +4,8 @@ import { AppBar } from './components/AppBar/AppBar';
 // import Phonebook from './components/Phonebook/Phonebook';
 import { HomePage } from './pages/HomePage';
 import { ContactsPage } from './pages/ContactsPage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
+import { LoginPage } from './pages/LoginPage/LoginPage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 
 function App() {
   return (

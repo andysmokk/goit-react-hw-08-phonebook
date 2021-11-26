@@ -8,7 +8,7 @@ export function PublicRoute({ component: Component }) {
   return (
     <>
       <h1>PUBLIC</h1>
-      {isLoggedIn ? <Navigate to="/" /> : <Component />}
+      {isLoggedIn ? <Navigate to="/contacts" /> : <Component />}
     </>
   );
 }

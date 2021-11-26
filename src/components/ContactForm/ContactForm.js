@@ -52,6 +52,7 @@ export default function ContactForm() {
     const newContactId = shortid.generate();
     const newContact = { name, number, id: newContactId };
     dispatch(postAddContact(newContact));
+    dispatch(fetchContacts());
   };
 
   const checkContactList = () => {

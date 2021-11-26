@@ -25,7 +25,7 @@ function App() {
         <AppBar />
         {/* <Phonebook /> */}
         <Routes>
-          <Route path="/" element={<PrivateRoute component={HomePage} />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/contacts"
             element={<PrivateRoute component={ContactsPage} />}

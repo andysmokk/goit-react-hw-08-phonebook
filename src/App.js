@@ -6,6 +6,8 @@ import { HomePage } from './pages/HomePage';
 import { ContactsPage } from './pages/ContactsPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import { RegisterPage } from './pages/RegisterPage/RegisterPage';
+import { PublicRoute } from './components/routes/PublicRoute';
+import { PrivateRoute } from './components/routes/PrivateRoute';
 
 function App() {
   return (
@@ -14,10 +16,19 @@ function App() {
         <AppBar />
         {/* <Phonebook /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<PrivateRoute component={HomePage} />} />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={ContactsPage} />}
+          />
+          <Route
+            path="/register"
+            element={<PublicRoute component={RegisterPage} />}
+          />
+          <Route
+            path="/login"
+            element={<PublicRoute component={LoginPage} />}
+          />
         </Routes>
       </section>
     </>

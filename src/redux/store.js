@@ -16,13 +16,13 @@ import authReducer from './auth/auth-slice';
 const phoneBookPersistConfig = {
   key: 'contacts',
   storage,
-  blacklist: ['filter'],
+  blacklist: ['filter', 'loading'],
 };
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  blacklist: ['token'],
+  whitelist: ['token'],
 };
 
 // const rootReducer = combineReducers({

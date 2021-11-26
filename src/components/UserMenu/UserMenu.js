@@ -1,6 +1,14 @@
+import { useSelector, useDispatch } from 'react-redux';
 import s from './UserMenu.module.css';
+import { getUserName } from '../../redux/auth/auth-selectors';
+import { logOutUser } from '../../redux/auth/auth-operations';
 
 export function UserMenu() {
+  const dispatch = useDispatch();
+  const userName = useSelector(getUserName);
+
+  console.log(dispatch(logOutUser));
+
   return (
     <div className={s.container}>
       <img
@@ -8,8 +16,10 @@ export function UserMenu() {
         alt=""
         width="25"
       ></img>
-      <p>Welcome, Name</p>
-      <button type="button">Logout</button>
+      <p>Welcome, {userName}</p>
+      <button type="button" onClick={() => dispatch(logOutUser())}>
+        Logout
+      </button>
     </div>
   );
 }

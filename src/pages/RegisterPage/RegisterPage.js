@@ -74,7 +74,7 @@ export function RegisterPage() {
             type="password"
             name="password"
             value={password}
-            placeholder="min 6 characters"
+            placeholder="min 7 characters"
             required
             onChange={onChangeValue}
             //   id={shortid.generate()}

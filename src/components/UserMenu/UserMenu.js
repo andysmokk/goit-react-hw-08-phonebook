@@ -7,8 +7,6 @@ export function UserMenu() {
   const dispatch = useDispatch();
   const userName = useSelector(getUserName);
 
-  console.log(dispatch(logOutUser));
-
   return (
     <div className={s.container}>
       <img

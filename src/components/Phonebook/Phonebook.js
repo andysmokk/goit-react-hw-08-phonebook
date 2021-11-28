@@ -10,7 +10,9 @@ function Phonebook() {
         <h1 className={s.title}>Phonebook</h1>
         <ContactForm />
       </div>
-      <div className={s.divBox}>
+      <div
+      // className={s.divBox}
+      >
         <h2 className={s.title}>Contacts</h2>
         <div className={s.boxList}>
           <Filter />

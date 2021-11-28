@@ -2,15 +2,18 @@
   font-size: 34px;
   margin-top: 20px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .box {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.divBox {
+/* .divBox {
   margin-left: 50px;
-}
+} */
 
 .boxList {
   width: 400px;

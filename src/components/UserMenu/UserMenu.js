@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 import s from './UserMenu.module.css';
 import { getUserName } from '../../redux/auth/auth-selectors';
@@ -9,32 +11,41 @@ import { logOutUser } from '../../redux/auth/auth-operations';
 export function UserMenu() {
   const dispatch = useDispatch();
   const userName = useSelector(getUserName);
+  const location = useLocation();
+
+  const getNavLinkClass = path => {
+    return location.pathname === path ? 'navLink active' : 'navLink';
+  };
 
   return (
     <>
-      <Nav variant="tabs" defaultActiveKey="/">
-        <Nav.Item>
-          <Nav.Link className={s.navLink} eventKey="/" href="/">
-            Home
-          </Nav.Link>
-        </Nav.Item>
+      <Nav variant="tabs" className={s.nav}>
+        <Nav.Link className={`${getNavLinkClass('/')} ${s.link}`} href="/">
+          Home
+        </Nav.Link>
 
-        <Nav.Item>
-          <Nav.Link className={s.navLink} eventKey="/contacts" href="/contacts">
-            Contacts
-          </Nav.Link>
-        </Nav.Item>
+        <Nav.Link
+          className={`${getNavLinkClass('/contacts')} ${s.link}`}
+          href="/contacts"
+        >
+          Contacts
+        </Nav.Link>
 
-        <div className={s.container}>
+        <div className={s.containerUser}>
           <img
             src="https://img.icons8.com/ios/50/000000/ninja-head.png"
             alt=""
             width="25"
           ></img>
-          <p>Welcome, {userName}</p>
-          <button type="button" onClick={() => dispatch(logOutUser())}>
+          <p className={s.text}>Welcome, {userName}</p>
+          <Button
+            className={s.button}
+            type="button"
+            variant="outline-primary"
+            onClick={() => dispatch(logOutUser())}
+          >
             Logout
-          </button>
+          </Button>
         </div>
       </Nav>
     </>

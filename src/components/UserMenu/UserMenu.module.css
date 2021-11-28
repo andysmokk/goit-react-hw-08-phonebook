@@ -1,5 +1,22 @@
-.container {
+.nav {
+  margin-top: 15px;
+}
+
+.link {
+  font-weight: 700;
+}
+
+.containerUser {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  padding: 7px;
+  padding: 3px;
+}
+
+.text {
+  margin-left: 8px;
+}
+
+.button {
+  margin-left: 10px;
 }

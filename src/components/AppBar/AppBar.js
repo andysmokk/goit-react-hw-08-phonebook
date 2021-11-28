@@ -15,7 +15,6 @@ export function AppBar() {
         {/* <AuthNav />
         <UserMenu /> */}
       </header>
-      <hr className={s.line} />
     </>
   );
 }

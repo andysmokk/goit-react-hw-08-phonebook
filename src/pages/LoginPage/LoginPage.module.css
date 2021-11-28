@@ -1,16 +1,27 @@
-.form {
+.section {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.form {
   width: 350px;
 }
 
 .label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .btn {
-  padding: 10px;
-  cursor: pointer;
+  width: 350px;
+}
+
+.boxText {
+  display: flex;
+  flex-direction: column;
 }

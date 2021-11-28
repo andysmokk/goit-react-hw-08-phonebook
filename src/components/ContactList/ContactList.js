@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 
 import { deleteContact } from '../../redux/phonebook-operations';
 import { getFilteredContacts } from '../../redux/phonebook-selectors';
@@ -13,15 +14,19 @@ export default function ContactList() {
   const onDeleteContact = id => dispatch(deleteContact(id));
 
   return (
-    <ul className={s.ul}>
+    <ListGroup className={s.ul} variant="flush">
       {contacts.map(({ id, name, number }) => (
-        <li className={s.li} key={id}>
+        <ListGroup.Item className={s.item} key={id}>
           {name}: {number}
-          <button className={s.btn} onClick={() => onDeleteContact(id)}>
+          <Button
+            variant="outline-primary"
+            className={s.btn}
+            onClick={() => onDeleteContact(id)}
+          >
             Delete
-          </button>
-        </li>
+          </Button>
+        </ListGroup.Item>
       ))}
-    </ul>
+    </ListGroup>
   );
 }

@@ -1,3 +1,4 @@
+import Badge from 'react-bootstrap/Badge';
 import s from './Phonebook.module.css';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
@@ -7,7 +8,9 @@ function Phonebook() {
   return (
     <div className={s.box}>
       <div>
-        <h1 className={s.title}>Phonebook</h1>
+        <h1 className={s.title}>
+          <Badge bg="primary">Phonebook</Badge>
+        </h1>
         <ContactForm />
       </div>
       <div

@@ -9,14 +9,16 @@ function Phonebook() {
     <div className={s.box}>
       <div>
         <h1 className={s.title}>
-          <Badge bg="primary">Phonebook</Badge>
+          <Badge bg="success">Phonebook</Badge>
         </h1>
         <ContactForm />
       </div>
       <div
       // className={s.divBox}
       >
-        <h2 className={s.title}>Contacts</h2>
+        <h2 className={s.title}>
+          <Badge bg="success">Contacts</Badge>
+        </h2>
         <div className={s.boxList}>
           <Filter />
           <ContactList />

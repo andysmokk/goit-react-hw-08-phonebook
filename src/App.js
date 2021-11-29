@@ -13,9 +13,36 @@ import { PrivateRoute } from './components/routes/PrivateRoute';
 import { fetchCurrentUser } from './redux/auth/auth-operations';
 import { getIsFetchingCurrent } from './redux/auth/auth-selectors';
 
+import { getNotification } from './redux/auth/auth-selectors';
+import {
+  NotificationError,
+  NotificationSuccess,
+} from './components/Notification/Notification';
+import { ToastContainer } from 'react-toastify';
+
 function App() {
   const dispatch = useDispatch();
   const isFetchCurrentUser = useSelector(getIsFetchingCurrent);
+
+  const noti = useSelector(getNotification);
+
+  useEffect(() => {
+    const { status, message } = noti;
+
+    console.log(status);
+    console.log(message);
+
+    switch (status) {
+      case 'error':
+        return NotificationError(message);
+
+      case 'success':
+        return NotificationSuccess(message);
+
+      default:
+        return;
+    }
+  }, [noti]);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -45,6 +72,7 @@ function App() {
             </Routes>
           </>
         )}
+        <ToastContainer theme="light" autoClose={2000} />
       </section>
     </>
   );

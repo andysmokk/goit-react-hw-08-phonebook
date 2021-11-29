@@ -11,6 +11,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFetchCurrentUser: false,
+  isNotification: {},
 };
 
 const authSlice = createSlice({
@@ -26,6 +27,13 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.isNotification = { status: 'success', message: 'success' };
+    },
+    [logInUser.rejected](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = false;
+      state.isNotification = { status: 'error', message: 'error' };
     },
     [logOutUser.fulfilled](state, action) {
       state.user = { name: null, email: null };

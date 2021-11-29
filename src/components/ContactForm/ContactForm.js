@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 import {
   postAddContact,
@@ -15,6 +16,15 @@ import s from './ContactForm.module.css';
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [disableButton, setDisableButton] = useState(true);
+
+  useEffect(() => {
+    if (name && number) {
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+  }, [name, number]);
 
   const contacts = useSelector(getContacts);
   const loader = useSelector(isLoader);
@@ -122,10 +132,28 @@ export default function ContactForm() {
           </div>
         </Form.Group>
         <div className={s.btnBox}>
-          <Button className={s.btn} variant="primary" type="submit">
-            Add contact
+          <Button
+            className={s.btn}
+            variant="primary"
+            type="submit"
+            disabled={disableButton}
+          >
+            {loader ? (
+              <>
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />{' '}
+                Loading...
+              </>
+            ) : (
+              <p>Add contact</p>
+            )}
           </Button>
-          <div className={s.loader}>{loader && <h1>Loading...</h1>}</div>
+          {/* <div className={s.loader}>{loader && <h1>Loading...</h1>}</div> */}
         </div>
       </Form>
     </section>

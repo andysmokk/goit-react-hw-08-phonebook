@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -10,6 +10,15 @@ export function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [disableButton, setDisableButton] = useState(true);
+
+  useEffect(() => {
+    if (name && email && password.length >= 7) {
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+  }, [name, email, password.length]);
 
   const onChangeValue = ({ target: { name, value } }) => {
     switch (name) {
@@ -40,12 +49,12 @@ export function RegisterPage() {
       <h1 className={s.title}>REGISTRATION</h1>
       <Form className={s.form} onSubmit={onSubmitForm}>
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label className={s.label}>Full name</Form.Label>
+          <Form.Label className={s.label}>Username</Form.Label>
           <Form.Control
             className={s.input}
             type="text"
             name="name"
-            placeholder="Enter full name*"
+            placeholder="Enter username*"
             value={name}
             autoComplete="on"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -54,7 +63,7 @@ export function RegisterPage() {
             onChange={onChangeValue}
             //   id={shortid.generate()}
           />
-          <Form.Text className="text-muted">Example: Gary Flat</Form.Text>
+          <Form.Text className="text-muted">Example: blackMamba</Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className={s.label}>Email address</Form.Label>
@@ -65,7 +74,7 @@ export function RegisterPage() {
             name="email"
             placeholder="Enter email*"
             value={email}
-            autoComplete="on"
+            // autoComplete="on"
             required
             onChange={onChangeValue}
             //   id={shortid.generate()}
@@ -90,7 +99,12 @@ export function RegisterPage() {
             <Form.Text className={`'text-muted'`}>* Required field</Form.Text>
           </div>
         </Form.Group>
-        <Button className={s.btn} variant="primary" type="submit">
+        <Button
+          className={s.btn}
+          variant="primary"
+          type="submit"
+          disabled={disableButton}
+        >
           Sign Up
         </Button>
       </Form>

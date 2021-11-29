@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -9,6 +9,15 @@ export function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [disableButton, setDisableButton] = useState(true);
+
+  useEffect(() => {
+    if (email && password.length >= 7) {
+      setDisableButton(false);
+      return;
+    }
+    setDisableButton(true);
+  }, [email, password.length]);
 
   const onChangeValue = ({ target: { name, value } }) => {
     switch (name) {
@@ -43,7 +52,7 @@ export function LoginPage() {
             name="email"
             placeholder="Enter email*"
             value={email}
-            // required
+            required
             onChange={onChangeValue}
             //   id={shortid.generate()}
           />
@@ -59,7 +68,7 @@ export function LoginPage() {
             name="password"
             value={password}
             placeholder="Enter password*"
-            // required
+            required
             onChange={onChangeValue}
             //   id={shortid.generate()}
           />
@@ -69,7 +78,12 @@ export function LoginPage() {
             <Form.Text className={`'text-muted'`}>* Required field</Form.Text>
           </div>
         </Form.Group>
-        <Button className={s.btn} variant="primary" type="submit">
+        <Button
+          className={s.btn}
+          variant="primary"
+          type="submit"
+          disabled={disableButton}
+        >
           Sign In
         </Button>
         {/* <button className={s.btn} type="submit">

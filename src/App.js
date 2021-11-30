@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 import { AppBar } from './components/AppBar/AppBar';
 // import Phonebook from './components/Phonebook/Phonebook';
 import { HomePage } from './pages/HomePage/HomePage';
@@ -18,19 +19,15 @@ import {
   NotificationError,
   NotificationSuccess,
 } from './components/Notification/Notification';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
   const dispatch = useDispatch();
   const isFetchCurrentUser = useSelector(getIsFetchingCurrent);
 
-  const noti = useSelector(getNotification);
+  const notification = useSelector(getNotification);
 
   useEffect(() => {
-    const { status, message } = noti;
-
-    console.log(status);
-    console.log(message);
+    const { status, message } = notification;
 
     switch (status) {
       case 'error':
@@ -42,7 +39,7 @@ function App() {
       default:
         return;
     }
-  }, [noti]);
+  }, [notification]);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -72,7 +69,13 @@ function App() {
             </Routes>
           </>
         )}
-        <ToastContainer theme="light" autoClose={2000} />
+        <ToastContainer
+          theme="light"
+          autoClose={2000}
+          closeOnClick={false}
+          newestOnTop
+          pauseOnHover
+        />
       </section>
     </>
   );

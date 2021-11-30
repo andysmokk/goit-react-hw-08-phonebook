@@ -17,6 +17,10 @@ export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [disableButton, setDisableButton] = useState(true);
+  const contacts = useSelector(getContacts);
+
+  const loader = useSelector(isLoader);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (name && number) {
@@ -25,10 +29,6 @@ export default function ContactForm() {
     }
     setDisableButton(true);
   }, [name, number]);
-
-  const contacts = useSelector(getContacts);
-  const loader = useSelector(isLoader);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContacts());

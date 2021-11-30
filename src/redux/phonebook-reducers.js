@@ -7,11 +7,31 @@ import {
   deleteContact,
 } from './phonebook-operations';
 
-const contactsReducer = createReducer([], {
-  [fetchContacts.fulfilled]: (_, action) => action.payload,
-  [postAddContact.fulfilled]: (state, action) => [...state, action.payload],
-  [deleteContact.fulfilled]: (state, action) =>
-    state.filter(({ id }) => id !== action.payload),
+const initialState = {
+  contacts: [],
+  isNotification: {},
+};
+
+const contactsReducer = createReducer(initialState, {
+  [fetchContacts.fulfilled]: (_, action) => ({
+    contacts: action.payload,
+    isNotification: {},
+  }),
+  [postAddContact.fulfilled]: state => ({
+    ...state,
+    isNotification: {
+      status: 'success',
+      message: 'Contact added successfully!',
+    },
+  }),
+  [deleteContact.fulfilled]: (state, action) => ({
+    ...state,
+    contacts: state.contacts.filter(({ id }) => id !== action.payload),
+    isNotification: {
+      status: 'success',
+      message: 'Contact successfully deleted!',
+    },
+  }),
 });
 
 const filterReducer = createReducer('', {

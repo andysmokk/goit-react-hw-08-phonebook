@@ -13,8 +13,6 @@ export function Navigation() {
   // const isLoggedIn = useSelector(getIsLoggedIn);
   const location = useLocation();
 
-  console.log(location.pathname);
-
   const getNavLinkClass = path => {
     return location.pathname === path ? 'navLink active' : 'navLink';
   };

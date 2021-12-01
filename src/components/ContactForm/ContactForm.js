@@ -8,9 +8,12 @@ import Spinner from 'react-bootstrap/Spinner';
 import {
   postAddContact,
   fetchContacts,
-} from '../../redux/phonebook-operations';
+} from '../../redux/phonebook/phonebook-operations';
 import shortid from 'shortid';
-import { getContacts, isLoader } from '../../redux/phonebook-selectors';
+import {
+  getContacts,
+  isLoader,
+} from '../../redux/phonebook/phonebook-selectors';
 import s from './ContactForm.module.css';
 
 export default function ContactForm() {
@@ -65,8 +68,8 @@ export default function ContactForm() {
   const addNewContact = () => {
     const newContactId = shortid.generate();
     const newContact = { name, number, id: newContactId };
-    dispatch(fetchContacts());
     dispatch(postAddContact(newContact));
+    dispatch(fetchContacts());
   };
 
   const checkContactList = () => {

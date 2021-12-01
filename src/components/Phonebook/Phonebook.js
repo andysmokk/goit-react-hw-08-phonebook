@@ -6,7 +6,7 @@ import s from './Phonebook.module.css';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
-import { getNotification } from '../../redux/phonebook-selectors';
+import { getNotification } from '../../redux/phonebook/phonebook-selectors';
 import {
   NotificationSuccess,
   NotificationError,

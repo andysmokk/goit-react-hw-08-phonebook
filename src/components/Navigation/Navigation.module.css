@@ -1,9 +1,3 @@
-.navLink {
-  padding: 10px;
-  display: inline-block;
-  text-decoration: none;
-}
-
 .navRegister {
   margin-left: auto;
 }
@@ -11,8 +5,4 @@
 .nav {
   margin-top: 15px;
   font-weight: 700;
-}
-
-.aaa {
-  color: brown;
 }

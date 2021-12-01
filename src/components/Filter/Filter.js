@@ -9,7 +9,7 @@ export default function Filter() {
   const onChange = e => dispatch(changeFilter(e.target.value));
 
   return (
-    <Form className={s.form}>
+    <Form>
       <Form.Control
         className={s.input}
         type="text"

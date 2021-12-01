@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-
 import {
   postAddContact,
   fetchContacts,
@@ -36,11 +34,6 @@ export default function ContactForm() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  // const onSubmit = contact => {
-  //   // dispatch(fetchContacts());
-  //   dispatch(addContact(contact));
-  // };
 
   const onSubmitForm = e => {
     e.preventDefault();
@@ -89,15 +82,9 @@ export default function ContactForm() {
   return (
     <section>
       <Form className={s.form} onSubmit={onSubmitForm}>
-        <Form.Group
-          className="mb-3"
-          controlId="formBasicName"
-          // htmlFor={shortid.generate()}
-        >
-          {/* <label className={s.label} htmlFor={shortid.generate()}> */}
+        <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label className={s.label}>Full name</Form.Label>
           <Form.Control
-            className={s.input}
             type="text"
             name="name"
             placeholder="Enter full name*"
@@ -106,19 +93,12 @@ export default function ContactForm() {
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
             onChange={onFormChange}
-            // id={shortid.generate()}
           />
           <Form.Text className="text-muted">Example: Hanna Sanchez</Form.Text>
         </Form.Group>
-        <Form.Group
-          className="mb-3"
-          controlId="formBasicPhone"
-          // htmlFor={shortid.generate()}
-        >
-          {/* <label className={s.label} htmlFor={shortid.generate()}> */}
+        <Form.Group className="mb-3" controlId="formBasicPhone">
           <Form.Label className={s.label}>Number</Form.Label>
           <Form.Control
-            className={s.input}
             type="Phone"
             name="number"
             placeholder="Enter phone number*"
@@ -127,14 +107,13 @@ export default function ContactForm() {
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
             onChange={onFormChange}
-            // id={shortid.generate()}
           />
           <div className={s.boxText}>
             <Form.Text className="text-muted">Example: 444-44-44</Form.Text>
             <Form.Text className={`'text-muted'`}>* Required field</Form.Text>
           </div>
         </Form.Group>
-        <div className={s.btnBox}>
+        <div>
           <Button
             className={s.btn}
             variant="primary"
@@ -156,7 +135,6 @@ export default function ContactForm() {
               <p>Add contact</p>
             )}
           </Button>
-          {/* <div className={s.loader}>{loader && <h1>Loading...</h1>}</div> */}
         </div>
       </Form>
     </section>

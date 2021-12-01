@@ -13,28 +13,11 @@ import storage from 'redux-persist/lib/storage';
 import phoneBookReducer from './phonebook/phonebook-reducers';
 import authReducer from './auth/auth-slice';
 
-// const phoneBookPersistConfig = {
-//   key: 'contacts',
-//   storage,
-//   blacklist: ['filter', 'loading'],
-// };
-
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
-
-// const rootReducer = combineReducers({
-//   contacts: contactsReducer,
-//   filter: filterReducer,
-//   loading: loadingReducer,
-// });
-
-// const persistedPhoneBookReducer = persistReducer(
-//   phoneBookPersistConfig,
-//   phoneBookReducer,
-// );
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
@@ -53,5 +36,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export { store };

@@ -61,7 +61,6 @@ export function RegisterPage() {
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
             onChange={onChangeValue}
-            //   id={shortid.generate()}
           />
           <Form.Text className="text-muted">Example: blackMamba</Form.Text>
         </Form.Group>
@@ -74,10 +73,8 @@ export function RegisterPage() {
             name="email"
             placeholder="Enter email*"
             value={email}
-            // autoComplete="on"
             required
             onChange={onChangeValue}
-            //   id={shortid.generate()}
           />
           <Form.Text className="text-muted">Example: email@email.com</Form.Text>
         </Form.Group>
@@ -92,7 +89,6 @@ export function RegisterPage() {
             placeholder="Enter password*"
             required
             onChange={onChangeValue}
-            //   id={shortid.generate()}
           />
           <div className={s.boxText}>
             <Form.Text className="text-muted">Minimum 7 characters</Form.Text>

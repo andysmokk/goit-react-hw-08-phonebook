@@ -38,13 +38,11 @@ function Phonebook() {
         </h1>
         <ContactForm />
       </div>
-      <div
-      // className={s.divBox}
-      >
+      <div>
         <h2 className={s.title}>
           <Badge bg="success">Contacts</Badge>
         </h2>
-        <div className={s.boxList}>
+        <div>
           <Filter />
           <ContactList />
         </div>

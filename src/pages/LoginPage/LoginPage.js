@@ -84,3 +84,5 @@ export function LoginPage() {
     </section>
   );
 }
+
+export default LoginPage;

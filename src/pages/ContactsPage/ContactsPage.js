@@ -1,9 +1,11 @@
 import Phonebook from '../../components/Phonebook/Phonebook';
 
-export function ContactsPage() {
+function ContactsPage() {
   return (
     <>
       <Phonebook />
     </>
   );
 }
+
+export default ContactsPage;

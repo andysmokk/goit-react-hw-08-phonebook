@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { registerUser } from '../../redux/auth/auth-operations';
 import s from './RegisterPage.module.css';
 
-export function RegisterPage() {
+function RegisterPage() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -107,3 +107,5 @@ export function RegisterPage() {
     </section>
   );
 }
+
+export default RegisterPage;

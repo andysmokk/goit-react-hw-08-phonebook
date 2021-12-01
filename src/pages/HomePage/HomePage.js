@@ -1,7 +1,7 @@
 import Badge from 'react-bootstrap/Badge';
 import s from './HomePage.module.css';
 
-export function HomePage() {
+function HomePage() {
   return (
     <div className={s.titleBox}>
       <h6 className={s.title}>
@@ -50,3 +50,5 @@ export function HomePage() {
     </div>
   );
 }
+
+export default HomePage;

@@ -13,8 +13,13 @@ ul {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 li {
   list-style: inside;
+  text-decoration: none;
 }
 
 h1,

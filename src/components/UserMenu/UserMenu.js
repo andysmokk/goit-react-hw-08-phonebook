@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
@@ -20,16 +20,25 @@ export function UserMenu() {
   return (
     <>
       <Nav variant="tabs" className={s.nav}>
-        <Nav.Link className={`${getNavLinkClass('/')} ${s.link}`} href="/">
-          Home
-        </Nav.Link>
+        <Link to="/">
+          <Nav.Link
+            as="li"
+            className={`${getNavLinkClass('/')} ${s.link}`}
+            href="/"
+          >
+            Home
+          </Nav.Link>
+        </Link>
 
-        <Nav.Link
-          className={`${getNavLinkClass('/contacts')} ${s.link}`}
-          href="/contacts"
-        >
-          Contacts
-        </Nav.Link>
+        <Link to="/contacts">
+          <Nav.Link
+            as="li"
+            className={`${getNavLinkClass('/contacts')} ${s.link}`}
+            href="/contacts"
+          >
+            Contacts
+          </Nav.Link>
+        </Link>
 
         <div className={s.containerUser}>
           <img

@@ -1,4 +1,11 @@
 .title {
   text-align: center;
-  margin-top: 150px;
+}
+
+.titleBox {
+  margin-top: 100px;
+}
+
+.text {
+  opacity: 0;
 }

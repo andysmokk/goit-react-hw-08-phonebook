@@ -34,13 +34,13 @@ function Phonebook() {
     <div className={s.box}>
       <div>
         <h1 className={s.title}>
-          <Badge bg="success">Phonebook</Badge>
+          <Badge bg="dark">Phonebook</Badge>
         </h1>
         <ContactForm />
       </div>
       <div>
         <h2 className={s.title}>
-          <Badge bg="success">Contacts</Badge>
+          <Badge bg="dark">Contacts</Badge>
         </h2>
         <div>
           <Filter />

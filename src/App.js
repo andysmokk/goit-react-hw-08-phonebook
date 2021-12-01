@@ -64,13 +64,13 @@ function App() {
             element={<PublicRoute component={LoginPage} />}
           />
         </Routes>
-        {/* <ToastContainer
+        <ToastContainer
           theme="light"
           autoClose={2000}
           closeOnClick={false}
           newestOnTop
           pauseOnHover
-        /> */}
+        />
       </section>
     )
   );

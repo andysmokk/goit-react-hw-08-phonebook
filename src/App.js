@@ -22,6 +22,8 @@ function App() {
   const dispatch = useDispatch();
   const isFetchCurrentUser = useSelector(getIsFetchingCurrent);
 
+  console.log(isFetchCurrentUser);
+
   const notification = useSelector(getNotification);
 
   useEffect(() => {
@@ -44,37 +46,33 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    !isFetchCurrentUser && (
       <section className="container">
-        {!isFetchCurrentUser && (
-          <>
-            <AppBar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route
-                path="/contacts"
-                element={<PrivateRoute component={ContactsPage} />}
-              />
-              <Route
-                path="/register"
-                element={<PublicRoute component={RegisterPage} />}
-              />
-              <Route
-                path="/login"
-                element={<PublicRoute component={LoginPage} />}
-              />
-            </Routes>
-          </>
-        )}
-        <ToastContainer
+        <AppBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={ContactsPage} />}
+          />
+          <Route
+            path="/register"
+            element={<PublicRoute component={RegisterPage} />}
+          />
+          <Route
+            path="/login"
+            element={<PublicRoute component={LoginPage} />}
+          />
+        </Routes>
+        {/* <ToastContainer
           theme="light"
           autoClose={2000}
           closeOnClick={false}
           newestOnTop
           pauseOnHover
-        />
+        /> */}
       </section>
-    </>
+    )
   );
 }
 

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import s from './Navigation.module.css';
 
@@ -11,23 +11,27 @@ export function Navigation() {
 
   return (
     <Nav variant="tabs" className={s.nav}>
-      <Nav.Item>
-        <Nav.Link className={getNavLinkClass('/')} href="/">
+      <Link to="/">
+        <Nav.Link as="li" className={getNavLinkClass('/')} href="/">
           Home
         </Nav.Link>
-      </Nav.Item>
+      </Link>
 
-      <Nav.Item className={s.navRegister}>
-        <Nav.Link className={getNavLinkClass('/register')} href="/register">
+      <Link to="/register" className={s.navRegister}>
+        <Nav.Link
+          as="li"
+          className={getNavLinkClass('/register')}
+          href="/register"
+        >
           Registration
         </Nav.Link>
-      </Nav.Item>
+      </Link>
 
-      <Nav.Item>
-        <Nav.Link className={getNavLinkClass('/login')} href="/login">
+      <Link to="/login">
+        <Nav.Link as="li" className={getNavLinkClass('/login')} href="/login">
           Login
         </Nav.Link>
-      </Nav.Item>
+      </Link>
     </Nav>
   );
 }

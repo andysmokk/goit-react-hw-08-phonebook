@@ -2,15 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-
 import { lazy, Suspense } from 'react';
-
 import './App.css';
 import { AppBar } from './components/AppBar/AppBar';
-// import { HomePage } from './pages/HomePage/HomePage';
-// import { ContactsPage } from './pages/ContactsPage/ContactsPage';
-// import { LoginPage } from './pages/LoginPage/LoginPage';
-// import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { PublicRoute } from './components/routes/PublicRoute';
 import { PrivateRoute } from './components/routes/PrivateRoute';
 import { fetchCurrentUser } from './redux/auth/auth-operations';
@@ -51,8 +45,6 @@ const NotFoundPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isFetchCurrentUser = useSelector(getIsFetchingCurrent);
-
-  console.log(isFetchCurrentUser);
 
   const notification = useSelector(getNotification);
 

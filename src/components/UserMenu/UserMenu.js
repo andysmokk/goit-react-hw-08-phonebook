@@ -1,12 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
-
 import { IoHome } from 'react-icons/io5';
 import { FaPowerOff, FaUserAstronaut, FaUsers } from 'react-icons/fa';
-
 import s from './UserMenu.module.css';
 import { getUserName } from '../../redux/auth/auth-selectors';
 import { logOutUser } from '../../redux/auth/auth-operations';

@@ -20,6 +20,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from './components/Notification/Notification';
+import Loader from './components/Loader/Loader';
 
 const HomePage = lazy(() =>
   import('./pages/HomePage/HomePage' /* webpackChunkName: "home_page" */),
@@ -78,7 +79,7 @@ function App() {
     !isFetchCurrentUser && (
       <section className="container">
         <AppBar />
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route

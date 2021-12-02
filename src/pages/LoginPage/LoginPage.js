@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { IoMdLogIn } from 'react-icons/io';
 import { logInUser } from '../../redux/auth/auth-operations';
 import s from './LoginPage.module.css';
 
@@ -41,7 +42,9 @@ export function LoginPage() {
 
   return (
     <section className={s.section}>
-      <h1 className={s.title}>SIGN IN</h1>
+      <h1 className={s.title}>
+        SIGN IN <IoMdLogIn className={s.icon} />
+      </h1>
       <Form className={s.form} onSubmit={onSubmitForm}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className={s.label}>Email address</Form.Label>

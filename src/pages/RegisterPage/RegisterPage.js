@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { SiMonkeytie } from 'react-icons/si';
 import { registerUser } from '../../redux/auth/auth-operations';
 import s from './RegisterPage.module.css';
 
@@ -46,7 +47,10 @@ function RegisterPage() {
 
   return (
     <section className={s.section}>
-      <h1 className={s.title}>REGISTRATION</h1>
+      <h1 className={s.title}>
+        REGISTRATION
+        <SiMonkeytie className={s.icon} />
+      </h1>
       <Form className={s.form} onSubmit={onSubmitForm}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label className={s.label}>Username</Form.Label>

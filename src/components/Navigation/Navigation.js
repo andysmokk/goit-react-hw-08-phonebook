@@ -1,5 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
+import { IoMdLogIn } from 'react-icons/io';
+import { SiMonkeytie } from 'react-icons/si';
+import { IoHome } from 'react-icons/io5';
 import s from './Navigation.module.css';
 
 export function Navigation() {
@@ -14,6 +17,7 @@ export function Navigation() {
       <Link to="/">
         <Nav.Link as="li" className={getNavLinkClass('/')} href="/">
           Home
+          <IoHome className={s.icon} />
         </Nav.Link>
       </Link>
 
@@ -24,12 +28,14 @@ export function Navigation() {
           href="/register"
         >
           Registration
+          <SiMonkeytie className={s.icon} />
         </Nav.Link>
       </Link>
 
       <Link to="/login">
         <Nav.Link as="li" className={getNavLinkClass('/login')} href="/login">
           Login
+          <IoMdLogIn className={s.icon} />
         </Nav.Link>
       </Link>
     </Nav>

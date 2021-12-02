@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
+import { FaUserPlus } from 'react-icons/fa';
 import {
   postAddContact,
   fetchContacts,
@@ -132,7 +133,9 @@ export default function ContactForm() {
                 Loading...
               </>
             ) : (
-              <p>Add contact</p>
+              <p>
+                Add contact <FaUserPlus className={s.icon} />
+              </p>
             )}
           </Button>
         </div>

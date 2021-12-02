@@ -1,4 +1,5 @@
 import Badge from 'react-bootstrap/Badge';
+import { AiFillCaretRight } from 'react-icons/ai';
 import s from './HomePage.module.css';
 
 function HomePage() {
@@ -26,6 +27,7 @@ function HomePage() {
       </h2>
       <h1 className={s.title}>
         Welcome to the app <Badge bg="primary">Phonebook</Badge>
+        <AiFillCaretRight className={s.icon} />
       </h1>
       <h2 className={s.title}>
         <span className={s.text}>Welcome to the app</span>
